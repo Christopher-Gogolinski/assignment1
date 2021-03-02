@@ -1,0 +1,23 @@
+var userStringToRobot = userString;
+				var userStringToRobotArray = userStringToRobot.split(" ");
+				var userStringToRobotLength = userStringToRobotArray.length		
+
+				for(var x = 0; x <= userStringToRobotLength; x++)
+				{
+
+					if(userStringToRobotArray[x] >= 5)
+					{
+						userStringToRobotArray[x] = userStringToRobotArray[x] + "-bork";
+					}
+					else //if length of array item < 5
+					{
+						userStringToRobotArray[x] = userStringToRobotArray[x] + "-boink";
+					}
+					
+				}
+
+				var userStringToRobotOutput = userStringToRobotArray.join(" ");
+				//must convert array to string then pass string to program3 to output to console.log
+				
+				
+				return userStringToRobotOutput;
