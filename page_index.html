@@ -1,4 +1,11 @@
-<script type="text/javascript">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>Assignment 1 - Christopher Gogolinski</title>
+
+		<script type="text/javascript">
 
 			mainMenu();
 
@@ -7,7 +14,7 @@
 				//maybe I have to make these global variables?
 				var choice = 0;
 				var userString;//for program 2
-				var userStringToRobotOutput = ""; //for program 3
+				var userStringToRobotOutput; //for program 3
 
 				while(choice <= 3)
 				{
@@ -40,7 +47,7 @@
 				}
 
 				program2(userString);
-				//userString variable is being passed
+
 
 
 			}//closes mainMenu function
@@ -65,8 +72,6 @@
 
 			function program2(userString){ // 80% finished
 
-				var userStringToRobot = userString;
-
 				if(userString == null)//works
 				{
 					alert("Program 2: You must first enter a string.");
@@ -77,13 +82,14 @@
 					alert("String " + userString + " is being converted.");//making sure string was passed
 				}
 
+				var userStringToRobot = userString;
 				var userStringToRobotArray = userStringToRobot.split(" ");
-				//splitting array indexes
+				var userStringToRobotLength = userStringToRobotArray.length		
 
-				for(var x = 0; x <= userStringToRobotArray.length; x++)
-				// This is for concating the array item with the suffix -bork or -boink
+				for(var x = 0; x <= userStringToRobotLength; x++)
 				{
-					if(userStringToRobotArray[x].length >= 5)
+
+					if(userStringToRobotArray[x] >= 5)
 					{
 						userStringToRobotArray[x] = userStringToRobotArray[x] + "-bork";
 					}
@@ -94,8 +100,9 @@
 					
 				}
 
-				var userStringToRobotOutput = userStringToRobotArray.toString();
+				var userStringToRobotOutput = userStringToRobotArray.join(" ");
 				//must convert array to string then pass string to program3 to output to console.log
+				
 				
 				return userStringToRobotOutput;
 				//
@@ -108,7 +115,7 @@
 			//if string converted write converted string in console.log and clear all strings
 			//should return back to mainMenu
 			{
-				alert("Program3");
+				alert(userStringToRobotOutput);
 			}
 
 			function exit()//needs no work
@@ -117,3 +124,8 @@
 			}
 
 		</script>
+	</head>
+<body>
+	
+</body>
+</html>
