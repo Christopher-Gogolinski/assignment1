@@ -1,0 +1,119 @@
+<script type="text/javascript">
+
+			mainMenu();
+
+			function mainMenu()
+			{	
+				//maybe I have to make these global variables?
+				var choice = 0;
+				var userString;//for program 2
+				var userStringToRobotOutput = ""; //for program 3
+
+				while(choice <= 3)
+				{
+
+					choice = prompt("Please enter:\n 1: To enter string\n 2: To convert string\n 3: To display string\n Exit: To exit program");
+
+					if(choice == 1)
+					{
+						var userString = program1();
+					}
+					else if(choice == 2)
+					{
+						userStringToRobotOutput = program2(userString);
+						choice = 0;
+					}
+					else if(choice == 3)
+					{
+						program3(userStringToRobotOutput);
+					}
+					else
+					{
+						exit();
+					}
+
+				}//closes while loop
+
+				if(userString.length >= 1) //this makes sure program 1 work and brought back userString
+				{
+					choice = prompt("Please enter:\n 1: To enter string\n 2: To convert string\n 3: To display string\n Exit: To exit program");
+				}
+
+				program2(userString);
+				//userString variable is being passed
+
+
+			}//closes mainMenu function
+
+			function program1() //perfect no problems at all
+			{
+				do
+				{
+					var userString = prompt("Enter a string.");
+
+					if(userString.length < 1)
+					{
+						alert("Not a string, try again.");
+					}
+
+				}
+				while(userString.length < 1)
+
+				return userString;
+
+			}//closes program1
+
+			function program2(userString){ // 80% finished
+
+				var userStringToRobot = userString;
+
+				if(userString == null)//works
+				{
+					alert("Program 2: You must first enter a string.");
+					return 0;
+				}
+				else
+				{
+					alert("String " + userString + " is being converted.");//making sure string was passed
+				}
+
+				var userStringToRobotArray = userStringToRobot.split(" ");
+				//splitting array indexes
+
+				for(var x = 0; x <= userStringToRobotArray.length; x++)
+				// This is for concating the array item with the suffix -bork or -boink
+				{
+					if(userStringToRobotArray[x].length >= 5)
+					{
+						userStringToRobotArray[x] = userStringToRobotArray[x] + "-bork";
+					}
+					else //if length of array item < 5
+					{
+						userStringToRobotArray[x] = userStringToRobotArray[x] + "-boink";
+					}
+					
+				}
+
+				var userStringToRobotOutput = userStringToRobotArray.toString();
+				//must convert array to string then pass string to program3 to output to console.log
+				
+				return userStringToRobotOutput;
+				//
+
+
+			}//closes program2
+
+			function program3(userStringToRobotOutput)//working on it
+			//if string was not converted alert "you must first convert string"
+			//if string converted write converted string in console.log and clear all strings
+			//should return back to mainMenu
+			{
+				alert("Program3");
+			}
+
+			function exit()//needs no work
+			{
+				alert("Exiting");
+			}
+
+		</script>
