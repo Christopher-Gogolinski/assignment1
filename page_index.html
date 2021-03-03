@@ -21,6 +21,12 @@
 
 					choice = prompt("Please enter:\n 1: To enter string\n 2: To convert string\n 3: To display string\n Exit: To exit program");
 
+					if(choice == "Exit")
+					{
+						exit();
+						return 0;
+					}
+
 					if(choice == 1)
 					{
 						var userString = program1();
@@ -28,7 +34,6 @@
 					else if(choice == 2)
 					{
 						userStringToRobotOutput = program2(userString);
-						choice = 0;
 					}
 					else if(choice == 3)
 					{
@@ -60,7 +65,7 @@
 
 					if(userString.length < 1)
 					{
-						alert("Not a string, try again.");
+						console.log("You need to enter something.");
 					}
 
 				}
@@ -74,22 +79,22 @@
 
 				if(userString == null)//works
 				{
-					alert("Program 2: You must first enter a string.");
+					console.log("You must first enter a string.");
 					return 0;
 				}
 				else
 				{
-					alert("String " + userString + " is being converted.");//making sure string was passed
+					console.log("String converted.");//making sure string was passed
 				}
 
 				var userStringToRobot = userString;
 				var userStringToRobotArray = userStringToRobot.split(" ");
 				var userStringToRobotLength = userStringToRobotArray.length		
 
-				for(var x = 0; x <= userStringToRobotLength; x++)
+				for(var x = 0; x < userStringToRobotLength; x++)
 				{
 
-					if(userStringToRobotArray[x] >= 5)
+					if(userStringToRobotArray[x].length >= 5)
 					{
 						userStringToRobotArray[x] = userStringToRobotArray[x] + "-bork";
 					}
@@ -110,17 +115,27 @@
 
 			}//closes program2
 
-			function program3(userStringToRobotOutput)//working on it
-			//if string was not converted alert "you must first convert string"
-			//if string converted write converted string in console.log and clear all strings
-			//should return back to mainMenu
+			function program3(userStringToRobotOutput)
 			{
-				alert(userStringToRobotOutput);
+				if(userStringToRobotOutput == null)//works
+				{
+					console.log("You need to first convert your string.");
+					return 0;
+				}
+				else
+				{
+					console.log(userStringToRobotOutput);//making sure string was passed
+				}
+
+				//must clear string
+				//code goes here
+
 			}
 
 			function exit()//needs no work
 			{
-				alert("Exiting");
+				console.log("Thanks for using the ROBOT Language Converter!");
+				return 0;
 			}
 
 		</script>
